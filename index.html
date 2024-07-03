@@ -32,28 +32,12 @@
 </a>
 <script src="assets/js/main.js"></script>
 <script>
-   document.getElementById('newsletterForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      var email = document.getElementById('email').value;
-
-      var xhr = new XMLHttpRequest();
-      xhr.open('POST', 'https://formspree.io/f/mpwazroz', true);
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      xhr.onload = function() {
-         if (xhr.status === 200) {
-            alert('Thank you! You will be notified.');
-         } else if (xhr.status === 400) {
-            alert('Invalid email address. Please enter a valid email.');
-         } else if (xhr.status === 500) {
-            alert('Failed to send email. Please try again later.');
-         } else {
-            alert('An error occurred. Please try again.');
-         }
-      };
-      xhr.onerror = function() {
-         alert('An error occurred during the request. Please check your internet connection and try again.');
-      };
-      xhr.send('email=' + encodeURIComponent(email));
+   document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('newsletterForm').addEventListener('submit', function(event) {
+         event.preventDefault();
+         alert('Thank you for notifying! We will be back soon.');
+         document.getElementById('email').value = '';
+      });
    });
 </script>
 </body>
